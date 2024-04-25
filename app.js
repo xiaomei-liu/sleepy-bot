@@ -38,18 +38,6 @@ app.post('/interactions', async function (req, res) {
   // Interaction type and data
   const { type, data, id, message } = req.body;
 
-  console.log({
-    data: req.body.data,
-    id: req.body.id,
-    message: {
-      id: req.body.message?.id,
-      interaction: req.body.message?.interaction,
-      interaction_metadata: req.body.message?.interaction_metadata,
-      type: req.body.message?.type
-    },
-    type: req.body.type
-  });
-
   /**
    * Handle verification requests
    */
@@ -72,6 +60,8 @@ app.post('/interactions', async function (req, res) {
           },
         });
       case SleepyBotCommand.ABYSS_INFO:
+        const img = await GenerateChamberImage(['UI_MonsterIcon_MachinaIustitia_Pylon']);
+        console.log(img);
         return res.send({
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
           data: {
@@ -84,7 +74,7 @@ app.post('/interactions', async function (req, res) {
               {
                 title: 'Chamber 1',
                 description: '**Enemy Level**: 72\n**Challenge Target:** Remaining challenge time longer than 60/180/300 sec.',
-                image: GenerateChamberImage(['UI_MonsterIcon_MachinaIustitia_Pylon']),
+                image: img,
                 footer: {
                   text: 'Test footer'
                 },
