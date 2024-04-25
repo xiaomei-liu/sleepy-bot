@@ -1,9 +1,10 @@
 import express from "express";
 import helmet from "helmet";
 import { rateLimit } from "express-rate-limit";
-import {FetchAbyssInfo, GenerateChamberImage, VerifyDiscordRequest} from "./src/utils.js";
+import { GenerateChamberImage, VerifyDiscordRequest } from "./src/utils.js";
 import { InteractionResponseType, InteractionType } from "discord-interactions";
 import { SleepyBotCommand } from "./src/types.js";
+import { FetchAbyssInfo } from "./src/api.js";
 
 const app = express();
 const port = process.env.PORT || "3000";
