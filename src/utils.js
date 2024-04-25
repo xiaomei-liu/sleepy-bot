@@ -1,6 +1,9 @@
 import fetch from 'node-fetch';
 import { verifyKey } from 'discord-interactions';
+import { createCanvas, loadImage} from 'canvas';
 import dotenv from 'dotenv';
+import {FetchAbyssInfo, FetchMonsterIcon} from "./api.js";
+
 dotenv.config()
 
 export function VerifyDiscordRequest(clientKey) {
@@ -52,14 +55,13 @@ export async function InstallGlobalCommands(appId, commands) {
     }
 }
 
-export async function FetchAbyssInfo() {
-    const url = 'https://api.ambr.top';
-    const endpoint = '/v2/en/tower';
-    return fetch(url + endpoint, {
-        headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-        },
-    });
+export async function GenerateChamberImage(listOfMonsters) {
+    const canvas = createCanvas(200, 200);
+    const ctx = canvas.getContext('2d');
+    const icon = await FetchMonsterIcon(listOfMonsters[0]);
+    const image = await loadImage(Buffer.from(icon.arrayBuffer()));
+    ctx.drawImage(image, 0,0,200,200);
+    return canvas.toBuffer('image/png');
 }
 
 export async function GetAbyssInfo() {
@@ -69,5 +71,4 @@ export async function GetAbyssInfo() {
         throw new Error('');
     }
     const { monsterList, items } = response.data;
-
 }

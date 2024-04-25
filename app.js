@@ -1,7 +1,7 @@
 import express from "express";
 import helmet from "helmet";
 import { rateLimit } from "express-rate-limit";
-import {FetchAbyssInfo, VerifyDiscordRequest} from "./src/utils.js";
+import {FetchAbyssInfo, GenerateChamberImage, VerifyDiscordRequest} from "./src/utils.js";
 import { InteractionResponseType, InteractionType } from "discord-interactions";
 import { SleepyBotCommand } from "./src/types.js";
 
@@ -82,6 +82,7 @@ app.post('/interactions', async function (req, res) {
               {
                 title: 'Chamber 1',
                 description: '**Enemy Level**: 72\n**Challenge Target:** Remaining challenge time longer than 60/180/300 sec.',
+                image: GenerateChamberImage(['UI_MonsterIcon_MachinaIustitia_Pylon']),
                 footer: {
                   text: 'Test footer'
                 },

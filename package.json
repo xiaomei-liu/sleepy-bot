@@ -11,6 +11,7 @@
     "node": ">=16.20.0"
   },
   "dependencies": {
+    "canvas": "^2.11.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "discord-interactions": "^3.4.0",
