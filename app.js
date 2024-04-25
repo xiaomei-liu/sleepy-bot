@@ -76,9 +76,17 @@ app.post('/interactions', async function (req, res) {
             content: 'Abyss info',
             embeds: [
               {
+                title: 'Floor 9',
+                description: 'After a character triggers a Vaporize reaction, the Vaporize reaction DMG dealt by that character is increased by 50% for 5s.',
+                color: 16777215
+              },
+              {
                 title: 'Test title',
                 description: 'Test description',
-                color: 16777215
+                footer: {
+                  text: 'Test footer'
+                },
+                color: 16711680
               }
             ],
             components: [
