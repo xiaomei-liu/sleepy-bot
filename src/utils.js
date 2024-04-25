@@ -63,7 +63,7 @@ export async function GenerateChamberImage(listOfMonsters) {
     const image = await loadImage(Buffer.from(arrayBuffer));
 
     ctx.drawImage(image, 0,0,200,200);
-    return canvas.toDataURL('image/png');
+    return canvas.toBuffer('image/png');
 }
 
 export async function GetAbyssInfo() {

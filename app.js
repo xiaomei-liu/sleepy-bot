@@ -74,7 +74,7 @@ app.post('/interactions', async function (req, res) {
               {
                 title: 'Chamber 1',
                 description: '**Enemy Level**: 72\n**Challenge Target:** Remaining challenge time longer than 60/180/300 sec.',
-                image: { url: img },
+                image: { url: 'attachment://image.png' },
                 footer: {
                   text: 'Test footer'
                 },
@@ -88,6 +88,12 @@ app.post('/interactions', async function (req, res) {
               //   title: 'Chamber 3',
               //   color: 255
               // }
+            ],
+            files: [
+              {
+                attachment: img,
+                name: 'image.png'
+              }
             ],
             components: [
               {
