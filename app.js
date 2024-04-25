@@ -27,10 +27,11 @@ app.get("/interactions", (req, res) => {
 });
 
 app.get("/abyss", async (req, res) => {
-  const apiResponse = await FetchAbyssInfo();
-  const data = await apiResponse.json();
-  console.log(data);
-  res.send("done");
+  // const apiResponse = await FetchAbyssInfo();
+  // const data = await apiResponse.json();
+  // console.log(data);
+  const img = await GenerateChamberImage(['UI_MonsterIcon_MachinaIustitia_Pylon']);
+  res.send(img);
 });
 
 app.post('/interactions', async function (req, res) {

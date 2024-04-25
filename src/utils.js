@@ -59,7 +59,9 @@ export async function GenerateChamberImage(listOfMonsters) {
     const canvas = createCanvas(200, 200);
     const ctx = canvas.getContext('2d');
     const icon = await FetchMonsterIcon(listOfMonsters[0]);
-    const image = await loadImage(Buffer.from(icon.arrayBuffer()));
+    const arrayBuffer = await icon.arrayBuffer();
+    const image = await loadImage(Buffer.from(arrayBuffer));
+
     ctx.drawImage(image, 0,0,200,200);
     return canvas.toBuffer('image/png');
 }
