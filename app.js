@@ -73,20 +73,27 @@ app.post('/interactions', async function (req, res) {
         return res.send({
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
           data: {
-            content: 'Abyss info',
+            content: 'Floor 9',
             embeds: [
               {
-                title: 'Floor 9',
+                title: 'Ley Line Disorder',
                 description: 'After a character triggers a Vaporize reaction, the Vaporize reaction DMG dealt by that character is increased by 50% for 5s.',
-                color: 16777215
               },
               {
-                title: 'Test title',
-                description: 'Test description',
+                title: 'Chamber 1',
+                description: '**Enemy Level**: 72\n**Challenge Target:** Remaining challenge time longer than 60/180/300 sec.',
                 footer: {
                   text: 'Test footer'
                 },
                 color: 16711680
+              },
+              {
+                title: 'Chamber 2',
+                color: 65280
+              },
+              {
+                title: 'Chamber 3',
+                color: 255
               }
             ],
             components: [
