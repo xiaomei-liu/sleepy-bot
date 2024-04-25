@@ -55,9 +55,19 @@ export async function InstallGlobalCommands(appId, commands) {
 export async function FetchAbyssInfo() {
     const url = 'https://api.ambr.top';
     const endpoint = '/v2/en/tower';
-    const res = await fetch(url, {
+    return fetch(url + endpoint, {
         headers: {
             'Content-Type': 'application/json; charset=UTF-8',
         },
     });
+}
+
+export async function GetAbyssInfo() {
+    const abyssInfo = await FetchAbyssInfo();
+    const response = await abyssInfo.json();
+    if (response.response !== 200) {
+        throw new Error('');
+    }
+    const { monsterList, items } = response.data;
+
 }

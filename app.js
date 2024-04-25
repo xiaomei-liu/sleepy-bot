@@ -25,6 +25,13 @@ app.get("/interactions", (req, res) => {
   res.send("/Interactions Health check");
 });
 
+app.get("/abyss", async (req, res) => {
+  const apiResponse = await FetchAbyssInfo();
+  const data = await apiResponse.json();
+  console.log(data);
+  res.send("done");
+});
+
 app.post('/interactions', async function (req, res) {
   // Interaction type and data
   const { type, data, id, message } = req.body;
@@ -63,12 +70,23 @@ app.post('/interactions', async function (req, res) {
           },
         });
       case SleepyBotCommand.ABYSS_INFO:
-        const info = await FetchAbyssInfo();
-        console.log(info);
         return res.send({
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
           data: {
             content: 'Abyss info',
+            components: [
+              {
+                type: 1,
+                components: [
+                  {
+                    type: 2,
+                    label: 'Next floor',
+                    style: 1,
+                    custom_id: 'btn_next_floor'
+                  }
+                ]
+              }
+            ]
           },
         });
       default:

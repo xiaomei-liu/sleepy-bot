@@ -6,13 +6,12 @@ const TEST_COMMAND = {
     type: 1,
 };
 
-// // Host a new event
-// const HOST_COMMAND = {
-//     name: 'host',
-//     description: 'Host a run',
-//     type: 1,
-// };
+const ABYSS_INFO_COMMAND = {
+    name: 'abyss_info',
+    description: 'Check floor info of abyss',
+    type: 1,
+};
 
-const ALL_COMMANDS = [TEST_COMMAND];
+const ALL_COMMANDS = [TEST_COMMAND, ABYSS_INFO_COMMAND];
 
 await InstallGlobalCommands(process.env.APP_ID, ALL_COMMANDS);
