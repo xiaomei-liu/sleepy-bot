@@ -74,10 +74,23 @@ app.post('/interactions', async function (req, res) {
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
           data: {
             content: 'Abyss info',
+            embeds: [
+              {
+                title: 'Test title',
+                description: 'Test description',
+                color: 16777215
+              }
+            ],
             components: [
               {
                 type: 1,
                 components: [
+                  {
+                    type: 2,
+                    label: 'Previous floor',
+                    style: 3,
+                    custom_id: 'btn_prev_floor'
+                  },
                   {
                     type: 2,
                     label: 'Next floor',
