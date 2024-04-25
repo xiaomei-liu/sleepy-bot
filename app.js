@@ -74,20 +74,20 @@ app.post('/interactions', async function (req, res) {
               {
                 title: 'Chamber 1',
                 description: '**Enemy Level**: 72\n**Challenge Target:** Remaining challenge time longer than 60/180/300 sec.',
-                image: img,
+                image: { url: img },
                 footer: {
                   text: 'Test footer'
                 },
                 color: 16711680
               },
-              {
-                title: 'Chamber 2',
-                color: 65280
-              },
-              {
-                title: 'Chamber 3',
-                color: 255
-              }
+              // {
+              //   title: 'Chamber 2',
+              //   color: 65280
+              // },
+              // {
+              //   title: 'Chamber 3',
+              //   color: 255
+              // }
             ],
             components: [
               {
