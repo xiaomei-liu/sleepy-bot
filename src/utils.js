@@ -15,7 +15,6 @@ export function VerifyDiscordRequest(clientKey) {
         }
     };
 }
-
 export async function DiscordRequest(endpoint, options) {
     // append endpoint to root API URL
     const url = 'https://discord.com/api/v10/' + endpoint;
@@ -51,4 +50,14 @@ export async function InstallGlobalCommands(appId, commands) {
     } catch (err) {
         console.error(err);
     }
+}
+
+export async function FetchAbyssInfo() {
+    const url = 'https://api.ambr.top';
+    const endpoint = '/v2/en/tower';
+    const res = await fetch(url, {
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+        },
+    });
 }

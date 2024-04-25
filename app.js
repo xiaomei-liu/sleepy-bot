@@ -1,7 +1,7 @@
 import express from "express";
 import helmet from "helmet";
 import { rateLimit } from "express-rate-limit";
-import { VerifyDiscordRequest } from "./src/utils.js";
+import {FetchAbyssInfo, VerifyDiscordRequest} from "./src/utils.js";
 import { InteractionResponseType, InteractionType } from "discord-interactions";
 import { SleepyBotCommand } from "./src/types.js";
 
@@ -11,7 +11,6 @@ const limiter = rateLimit({
   windowMs: 60 * 1000, // 1 minute
   max: 20,
 });
-const userSelectedValues = [];
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json({ verify: VerifyDiscordRequest(process.env.PUBLIC_KEY) }));
@@ -41,7 +40,6 @@ app.post('/interactions', async function (req, res) {
     },
     type: req.body.type
   });
-  console.log(userSelectedValues);
 
   /**
    * Handle verification requests
@@ -64,22 +62,15 @@ app.post('/interactions', async function (req, res) {
             content: 'Health check',
           },
         });
-      // case WizardBotCommand.HOST:
-      //   userSelectedValues[id] = []
-      //   return res.send({
-      //     type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-      //     data: {
-      //       content: 'Please fill out the form below to host a run.',
-      //       components: [
-      //         {
-      //           type: 1,
-      //           components: [
-      //             HostCommandSelectEventType
-      //           ]
-      //         }
-      //       ]
-      //     }
-      //   })
+      case SleepyBotCommand.ABYSS_INFO:
+        const info = await FetchAbyssInfo();
+        console.log(info);
+        return res.send({
+          type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+          data: {
+            content: 'Abyss info',
+          },
+        });
       default:
         return res.send({})
     }
