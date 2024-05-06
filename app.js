@@ -75,7 +75,7 @@ app.post('/interactions', async function (req, res) {
               {
                 title: 'Chamber 1',
                 description: '**Enemy Level**: 72\n**Challenge Target:** Remaining challenge time longer than 60/180/300 sec.',
-                image: { url: 'attachment://image.png' },
+                image: { url: 'https://imgur.com/t/cat/zRhcCfd' },
                 footer: {
                   text: 'Test footer'
                 },
@@ -90,16 +90,16 @@ app.post('/interactions', async function (req, res) {
               //   color: 255
               // }
             ],
-            attachments: [
-              {
-                id: 'test_icon',
-                filename: 'image.png',
-                description: 'Test attachment',
-                url: 'https://imgur.com/t/cat/zRhcCfd',
-                proxy_url: 'https://imgur.com/t/cat/zRhcCfd',
-                size: 3500
-              }
-            ],
+            // attachments: [
+            //   {
+            //     id: 'test_icon',
+            //     filename: 'image.png',
+            //     description: 'Test attachment',
+            //     url: 'https://imgur.com/t/cat/zRhcCfd',
+            //     proxy_url: 'https://imgur.com/t/cat/zRhcCfd',
+            //     size: 3500
+            //   }
+            // ],
             components: [
               {
                 type: 1,
