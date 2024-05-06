@@ -95,8 +95,8 @@ app.post('/interactions', async function (req, res) {
                 id: 'test_icon',
                 filename: 'image.png',
                 description: 'Test attachment',
-                url: img,
-                proxy_url: img,
+                url: 'https://imgur.com/t/cat/zRhcCfd',
+                proxy_url: 'https://imgur.com/t/cat/zRhcCfd',
                 size: 3500
               }
             ],
