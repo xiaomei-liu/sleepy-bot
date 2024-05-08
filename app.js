@@ -75,7 +75,7 @@ app.post('/interactions', async function (req, res) {
               {
                 title: 'Chamber 1',
                 description: '**Enemy Level**: 72\n**Challenge Target:** Remaining challenge time longer than 60/180/300 sec.',
-                image: { url: 'https://imgur.com/t/cat/zRhcCfd' },
+                image: { url: 'https://imgur.com/MCkHydn' },
                 footer: {
                   text: 'Test footer'
                 },
